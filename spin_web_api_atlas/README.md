@@ -1,16 +1,16 @@
-## 🏥 OHDSI Atlas and WebAPI Setup
+# 🏥 OHDSI Atlas and WebAPI Setup
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
 
-### 📋 Overview
+## 📋 Overview
 
 **OHDSI Atlas** is a web-based platform for exploring healthcare data, defining patient cohorts, conducting observational studies, and developing predictive models within the OHDSI ecosystem [1]. **OHDSI WebAPI** serves as the backend service providing secure access to OMOP Common Data Model (CDM) databases and RESTful API endpoints [2].
 
 This repository provides a **Docker-based deployment** solution that simplifies the complex setup process through pre-configured containers, automated database initialization, and streamlined service management, adopted from OHDSI Broadsea [3].
 
-### ✨ Key Features
+## ✨ Key Features
 
 - 🐳 **Pre-configured Docker containers** with proper defaults
 - 🔄 **Automated database initialization** via populate.py script
@@ -18,14 +18,11 @@ This repository provides a **Docker-based deployment** solution that simplifies 
 - 🔧 **Traefik reverse proxy** for HTTP/HTTPS routing
 - ⚡ **Health checks** ensuring correct startup order
 
-### 🛠️ Prerequisites
+## 🛠️ Prerequisites
 
 - ![Docker](https://img.shields.io/badge/Docker-Required-blue) Docker desktop installed [docker installation](https://www.docker.com/products/docker-desktop))
 - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Required-blue) PostgreSQL database with OMOP CDM data
 - ![User](https://img.shields.io/badge/Database_User-Required-blue) Dedicated database user with appropriate permissions
-
-#### Recommended action
-- Ensure you run achilles to characterise the OMOP CDM. This should be stored in a result schema. 
 
 ### 🔐 Database Schema Permissions
 
@@ -69,7 +66,7 @@ GRANT ALL PRIVILEGES ON SCHEMA webapi TO webapi_user;
 </details>
 
 ---
-#### 📊 Recommended Action
+## 📊 Recommended Action
 To ensure the OMOP CDM is properly characterized for use with Atlas, we strongly recommend running **Achilles** to generate a comprehensive analysis of the data, which will be stored in the Results schema. We recommend using **Achilles version 1.7.0**, as it has been tested and confirmed to work reliably with this setup. Ah!, It did worked for us. 
 
 ### Installing Achilles v1.7.0 in R
@@ -166,7 +163,7 @@ WEBAPI_DATASOURCE_URL=jdbc:postgresql://localhost:5432/your_database?user=webapi
 WEBAPI_DATASOURCE_URL=jdbc:postgresql://your-db-server.example.com:5432/your_database?user=webapi_user&password=your_secure_password
 ```
 
-#### 3. 🚀 Deploy Services
+### 3. 🚀 Deploy Services
 
 ```bash
 docker-compose up -d
@@ -207,8 +204,8 @@ docker-compose logs -f ohdsi-atlas-3
 | **OHDSI Atlas** | `http://127.0.0.1/atlas` | Web-based analytics platform |
 | **OHDSI WebAPI** | `http://127.0.0.1/WebAPI/info` | Backend API service |
 <div style="display: flex; gap: 10px;">
-<img src="./samples/sample1.png" alt="Dashboard1" width="500">
-<img src="./samples/sample2.png" alt="Dashboard1" width="500">
+<img src="./samples/sample1.png" alt="Dashboard1" width="530">
+<img src="./samples/sample2.png" alt="Dashboard1" width="530">
 </div>
 
 
