@@ -1,16 +1,16 @@
-# 🏥 OHDSI Atlas and WebAPI Setup
+## OHDSI Atlas and WebAPI Setup
 
 ![Python](https://img.shields.io/badge/python-3.8+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
 
-## 📋 Overview -
+## Overview
 
 **OHDSI Atlas** is a web-based platform for exploring healthcare data, defining patient cohorts, conducting observational studies, and developing predictive models within the OHDSI ecosystem [1]. **OHDSI WebAPI** serves as the backend service providing secure access to OMOP Common Data Model (CDM) databases and RESTful API endpoints [2].
 
 This repository provides a **Docker-based deployment** solution that simplifies the complex setup process through pre-configured containers, automated database initialization, and streamlined service management, adopted from OHDSI Broadsea [3].
 
-## ✨ Key Features
+## Key Features
 
 - 🐳 **Pre-configured Docker containers** with proper defaults
 - 🔄 **Automated database initialization** via `populate.py` script
@@ -18,13 +18,13 @@ This repository provides a **Docker-based deployment** solution that simplifies 
 - 🔧 **Traefik reverse proxy** for HTTP/HTTPS routing
 - ⚡ **Health checks** ensuring correct startup order
 
-## 🛠️ Prerequisites
+## Prerequisites
 
 - ![Docker](https://img.shields.io/badge/Docker-Required-blue) Docker desktop installed [docker installation](https://www.docker.com/products/docker-desktop))
 - ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Required-blue) PostgreSQL database with OMOP CDM data
 - ![User](https://img.shields.io/badge/Database_User-Required-blue) Dedicated database user with appropriate permissions
 
-### 🔐 Database Schema Permissions
+### Database Schema Permissions
 
 A dedicated database user must be created with specific schema permissions [4]:
 
@@ -38,7 +38,7 @@ A dedicated database user must be created with specific schema permissions [4]:
 
 ---
 <details>
-  <summary><b>💾 User Creation Script</b></summary>
+  <summary><b> User Creation Script</b></summary>
 
 ```sql
 CREATE USER webapi_user WITH PASSWORD 'your_secure_password';
@@ -66,7 +66,7 @@ GRANT ALL PRIVILEGES ON SCHEMA webapi TO webapi_user;
 </details>
 
 ---
-## 📊 Recommended Action
+## Recommended Action
 To ensure the OMOP CDM is properly characterized for use with Atlas, we strongly recommend running **Achilles** to generate a comprehensive analysis of the data, which will be stored in the Results schema. We recommend using **Achilles version 1.7.0**, as it has been tested and confirmed to work reliably with this setup. Ah!, It did worked for us. 
 
 ### Installing Achilles v1.7.0 in R
@@ -95,7 +95,7 @@ packageVersion("Achilles")  # Should return [1] ‘1.7.0’
 Below is a sample R script to run Achilles on your OMOP CDM database, storing results in the Results schema.
 
 <details>
-<summary>📝 View Sample R Code for Running Achilles</summary>
+<summary> View Sample R Code for Running Achilles</summary>
 
 ```R
 # Load required libraries
@@ -137,39 +137,39 @@ print("Achilles analysis completed. Results stored in the 'results' schema.")
 - Adjust `cdmVersion` to match your OMOP CDM version (e.g., "5.3" or "5.4").
 
 ---
-## 🚀 Quick Start
+## Quick Start
 
-### 1. 📥 Clone Repository
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/eHealthHub4Cancer/SPIN_WEB_API_ATLAS.git
 cd spin_web_api_atlas
 ```
 
-### 2. ⚙️ Configure Environment
+### 2. Configure Environment
 
 ```bash
 cp .env.example .env
 nano .env
 ```
 
-#### 🖥️ Local PostgreSQL
+#### Local PostgreSQL
 ```env
 WEBAPI_DATASOURCE_URL=jdbc:postgresql://localhost:5432/your_database?user=webapi_user&password=your_secure_password
 ```
 
-#### 🌐 External PostgreSQL
+#### External PostgreSQL
 ```env
 WEBAPI_DATASOURCE_URL=jdbc:postgresql://your-db-server.example.com:5432/your_database?user=webapi_user&password=your_secure_password
 ```
 
-### 3. 🚀 Deploy Services
+### 3. Deploy Services
 
 ```bash
 docker-compose up -d
 ```
 
-### ✅ Expected Output
+### Expected Output
 ```bash
 ✔ Network spin_web_api_atlas_default          Create...                                      0.1s 
  ✔ Container ohdsi-webapi-3                    Healthy                                      146.7s 
@@ -186,7 +186,7 @@ docker-compose up -d
  ✔ Container ohdsi-atlas-3                     Started                                      152.4s 
 ```
 
-### 4. 📊 Monitor Startup
+### 4. Monitor Startup
 
 ```bash
 # View all logs
@@ -197,7 +197,7 @@ docker-compose logs -f ohdsi-webapi-3
 docker-compose logs -f ohdsi-atlas-3
 ```
 ---
-### 🌐 Access Applications
+### Access Applications
 
 | Service | URL | Description |
 |---------|-----|-------------|
@@ -210,17 +210,17 @@ docker-compose logs -f ohdsi-atlas-3
 
 
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Common Issues
 
 | Issue | Solution |
 |-------|----------|
-| 🔌 **Database Connection Failed** | Verify credentials in `.env` and network connectivity |
-| 🚫 **WebAPI Not Starting** | Check database permissions and Flyway migrations, specifically schema_history table in your webapi schema. |
-| 🔗 **Atlas Cannot Connect** | Ensure WebAPI is healthy before Atlas starts |
+| **Database Connection Failed** | Verify credentials in `.env` and network connectivity |
+| **WebAPI Not Starting** | Check database permissions and Flyway migrations, specifically schema_history table in your webapi schema. |
+| **Atlas Cannot Connect** | Ensure WebAPI is healthy before Atlas starts |
 
-### 🔧 Useful Commands
+### Useful Commands
 
 ```bash
 # Stop services
@@ -233,19 +233,15 @@ docker-compose down -v
 docker-compose restart ohdsi-webapi-3
 ```
 
-## 🏆 Credits 
+## Acknowledgments
 
-This project is part of the [OHDSI](https://ohdsi.org) and was developed with support from the [eHealth Hub](https://ehealth4cancer.ie).
-
-## 🙏 Acknowledgments
-
-This work builds upon the outstanding contributions of the **Observational Health Data Sciences and Informatics [OHDSI](https://ohdsi.org)** collaborative. We extend our sincere gratitude to the OHDSI community for their dedication to improving healthcare through data.
+This work builds upon the contributions of the **Observational Health Data Sciences and Informatics [OHDSI](https://ohdsi.org)** collaborative. We extend our sincere gratitude to the OHDSI community for their dedication to improving healthcare through data.
 
 Special recognition goes to the **OHDSI Broadsea project** for providing the foundational Docker deployment framework.
 
-We also acknowledge **eHealth4Cancer -- [eHealth Hub](https://ehealth4cancer.ie)** for their significant contributions to advancing digital health solutions in oncology research and demonstrating the real-world impact of standardized health data analytics.
+We also acknowledge **eHealth4Cancer -- [eHealth Hub](https://ehealth4cancer.ie)** for their significant contributions to advancing digital health solutions in oncology research in all island.
 
-## 📚 References
+## References
 
 1. [OHDSI Atlas Documentation](https://github.com/OHDSI/Atlas/wiki)
 2. [OHDSI WebAPI Documentation](https://github.com/OHDSI/WebAPI/wiki)
@@ -253,11 +249,11 @@ We also acknowledge **eHealth4Cancer -- [eHealth Hub](https://ehealth4cancer.ie)
 4. [WebAPI CDM Configuration](https://github.com/OHDSI/WebAPI/wiki/CDM-Configuration)
 
 
-## 💬 Support
+## Support
 
 For issues and questions:
-- 🔍 Review the troubleshooting section above
-- 🐛 Submit issues to the repository's GitHub Issues page
+- Review the troubleshooting section above
+- Submit issues to the repository's GitHub Issues page
 
 ---
 <div style="display: flex; gap: 10px;">
