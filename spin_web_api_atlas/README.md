@@ -4,7 +4,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
 
-## 📋 Overview
+## 📋 Overview -
 
 **OHDSI Atlas** is a web-based platform for exploring healthcare data, defining patient cohorts, conducting observational studies, and developing predictive models within the OHDSI ecosystem [1]. **OHDSI WebAPI** serves as the backend service providing secure access to OMOP Common Data Model (CDM) databases and RESTful API endpoints [2].
 
