@@ -29,7 +29,7 @@ This repository provides a **Docker-based deployment** solution that simplifies 
 
 ### 🔐 Database Schema Permissions
 
-A dedicated database user must be created with specific schema permissions:
+A dedicated database user must be created with specific schema permissions [4]:
 
 | Schema | Permissions | Description |
 |--------|------------|-------------|
@@ -39,7 +39,7 @@ A dedicated database user must be created with specific schema permissions:
 | **Temp** | `ALL PRIVILEGES` | Full control for temporary tables |
 | **WebAPI** | `ALL PRIVILEGES` | Full access for Flyway migrations |
 
-
+---
 <details>
   <summary><b>💾 User Creation Script</b></summary>
 
@@ -68,10 +68,11 @@ GRANT ALL PRIVILEGES ON SCHEMA webapi TO webapi_user;
     
 </details>
 
+---
 #### 📊 Recommended Action
 To ensure the OMOP CDM is properly characterized for use with Atlas, we strongly recommend running **Achilles** to generate a comprehensive analysis of the data, which will be stored in the Results schema. We recommend using **Achilles version 1.7.0**, as it has been tested and confirmed to work reliably with this setup. Ah!, It did worked for us. 
 
-#### Installing Achilles v1.7.0 in R
+### Installing Achilles v1.7.0 in R
 Achilles is available in the OHDSI GitHub repository: [OHDSI/Achilles](https://github.com/OHDSI/Achilles). Since `install.packages()` does not support installing specific versions directly from CRAN, we recommend using the `devtools` package to install Achilles v1.7.0 from GitHub. Follow these steps in an R environment:
 
 <details>
@@ -93,7 +94,7 @@ packageVersion("Achilles")  # Should return [1] ‘1.7.0’
 
 </details>
 
-#### Running Achilles
+### Running Achilles
 Below is a sample R script to run Achilles on your OMOP CDM database, storing results in the Results schema.
 
 <details>
@@ -138,7 +139,7 @@ print("Achilles analysis completed. Results stored in the 'results' schema.")
 - The `outputFolder` parameter specifies where temporary files are saved; ensure this directory exists and is writable.
 - Adjust `cdmVersion` to match your OMOP CDM version (e.g., "5.3" or "5.4").
 
-
+---
 ## 🚀 Quick Start
 
 ### 1. 📥 Clone Repository
@@ -171,7 +172,7 @@ WEBAPI_DATASOURCE_URL=jdbc:postgresql://your-db-server.example.com:5432/your_dat
 docker-compose up -d
 ```
 
-#### ✅ Expected Output
+### ✅ Expected Output
 ```bash
 ✔ Network spin_web_api_atlas_default          Create...                                      0.1s 
  ✔ Container ohdsi-webapi-3                    Healthy                                      146.7s 
@@ -188,7 +189,7 @@ docker-compose up -d
  ✔ Container ohdsi-atlas-3                     Started                                      152.4s 
 ```
 
-#### 4. 📊 Monitor Startup
+### 4. 📊 Monitor Startup
 
 ```bash
 # View all logs
@@ -206,8 +207,8 @@ docker-compose logs -f ohdsi-atlas-3
 | **OHDSI Atlas** | `http://127.0.0.1/atlas` | Web-based analytics platform |
 | **OHDSI WebAPI** | `http://127.0.0.1/WebAPI/info` | Backend API service |
 
-<img src="./samples/sample1.png" alt="Dashboard1" width="350">
-<img src="./samples/sample2.png" alt="Dashboard1" width="350">
+<img src="./samples/sample1.png" alt="Dashboard1" width="500">
+<img src="./samples/sample2.png" alt="Dashboard1" width="500">
 
 
 
@@ -248,10 +249,10 @@ We also acknowledge **eHealth4Cancer -- [eHealth Hub](https://ehealth4cancer.ie)
 
 ## 📚 References
 
-- [OHDSI Atlas Documentation](https://github.com/OHDSI/Atlas/wiki)
-- [OHDSI WebAPI Documentation](https://github.com/OHDSI/WebAPI/wiki)
-- [OHDSI Broadsea Project](https://github.com/OHDSI/Broadsea)
-- [WebAPI CDM Configuration](https://github.com/OHDSI/WebAPI/wiki/CDM-Configuration)
+1. [OHDSI Atlas Documentation](https://github.com/OHDSI/Atlas/wiki)
+2. [OHDSI WebAPI Documentation](https://github.com/OHDSI/WebAPI/wiki)
+3. [OHDSI Broadsea Project](https://github.com/OHDSI/Broadsea)
+4. [WebAPI CDM Configuration](https://github.com/OHDSI/WebAPI/wiki/CDM-Configuration)
 
 
 ## 💬 Support
