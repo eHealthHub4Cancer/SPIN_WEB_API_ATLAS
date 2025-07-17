@@ -12,11 +12,11 @@ This repository provides a **Docker-based deployment** solution that simplifies 
 
 ## Key Features
 
-- 🐳 **Pre-configured Docker containers** with proper defaults
-- 🔄 **Automated database initialization** via `populate.py` script
-- 🚀 **Service dependency management** through Docker Compose
-- 🔧 **Traefik reverse proxy** for HTTP/HTTPS routing
-- ⚡ **Health checks** ensuring correct startup order
+- **Pre-configured Docker containers** with proper defaults
+- **Automated database initialization** via `populate.py` script
+- **Service dependency management** through Docker Compose
+- **Traefik reverse proxy** for HTTP/HTTPS routing
+- **Health checks** ensuring correct startup order
 
 ## Prerequisites
 
@@ -73,7 +73,7 @@ To ensure the OMOP CDM is properly characterized for use with Atlas, we strongly
 Achilles is available in the OHDSI GitHub repository: [OHDSI/Achilles](https://github.com/OHDSI/Achilles). Since `install.packages()` does not support installing specific versions directly from CRAN, we recommend using the `devtools` package to install Achilles v1.7.0 from GitHub. Follow these steps in an R environment:
 
 <details>
-<summary>📦 View R Code for Installing Achilles v1.7.0</summary>
+<summary> View R Code for Installing Achilles v1.7.0</summary>
 
 ```R
 # Install devtools if not already installed
