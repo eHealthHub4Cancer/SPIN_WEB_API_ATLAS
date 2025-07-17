@@ -13,7 +13,7 @@ This repository provides a **Docker-based deployment** solution that simplifies 
 ## ✨ Key Features
 
 - 🐳 **Pre-configured Docker containers** with proper defaults
-- 🔄 **Automated database initialization** via populate.py script
+- 🔄 **Automated database initialization** via `populate.py` script
 - 🚀 **Service dependency management** through Docker Compose
 - 🔧 **Traefik reverse proxy** for HTTP/HTTPS routing
 - ⚡ **Health checks** ensuring correct startup order
