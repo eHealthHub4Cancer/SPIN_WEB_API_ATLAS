@@ -206,9 +206,10 @@ docker-compose logs -f ohdsi-atlas-3
 |---------|-----|-------------|
 | **OHDSI Atlas** | `http://127.0.0.1/atlas` | Web-based analytics platform |
 | **OHDSI WebAPI** | `http://127.0.0.1/WebAPI/info` | Backend API service |
-
+<div style="display: flex; gap: 10px;">
 <img src="./samples/sample1.png" alt="Dashboard1" width="500">
 <img src="./samples/sample2.png" alt="Dashboard1" width="500">
+</div>
 
 
 
@@ -262,7 +263,9 @@ For issues and questions:
 - 🐛 Submit issues to the repository's GitHub Issues page
 
 ---
-<img src="./samples/ehealth.png" alt="OHDSI Logo" width="100">
+<div style="display: flex; gap: 10px;">
+<img src="./samples/ehealth.png" alt="OHDSI Logo" width="150">
 
-<img src="./samples/nsrp.png" alt="NSRP Logo" width="150">
-<img src="./samples/ohdsi.png" alt="OHDSI Logo" width="150">
+<img src="./samples/nsrp.png" alt="NSRP Logo" width="250">
+<img src="./samples/ohdsi.png" alt="OHDSI Logo" width="250">
+</div>
