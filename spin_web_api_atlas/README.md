@@ -142,7 +142,7 @@ print("Achilles analysis completed. Results stored in the 'results' schema.")
 ### 1. 📥 Clone Repository
 
 ```bash
-git clone https://github.com/your-username/ohdsi-docker-deployment.git
+git clone https://github.com/eHealthHub4Cancer/SPIN_WEB_API_ATLAS.git
 cd spin_web_api_atlas
 ```
 
@@ -204,8 +204,8 @@ docker-compose logs -f ohdsi-atlas-3
 | **OHDSI Atlas** | `http://127.0.0.1/atlas` | Web-based analytics platform |
 | **OHDSI WebAPI** | `http://127.0.0.1/WebAPI/info` | Backend API service |
 <div style="display: flex; gap: 10px;">
-<img src="./samples/sample1.png" alt="Dashboard1" width="530">
-<img src="./samples/sample2.png" alt="Dashboard1" width="530">
+<img src="./samples/sample1.png" alt="Dashboard1" width="510">
+<img src="./samples/sample2.png" alt="Dashboard1" width="510">
 </div>
 
 
