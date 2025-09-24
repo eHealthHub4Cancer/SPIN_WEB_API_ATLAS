@@ -53,7 +53,7 @@ GRANT USAGE ON SCHEMA vocab TO webapi_user;
 GRANT SELECT ON ALL TABLES IN SCHEMA vocab TO webapi_user;
 
 -- Results Schema (Full DML)
-GRANT USAGE ON SCHEMA results TO webapi_user;
+GRANT USAGE, CREATE ON SCHEMA results TO webapi_user;
 GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA results TO webapi_user;
 
 -- Temp Schema (Full control)
