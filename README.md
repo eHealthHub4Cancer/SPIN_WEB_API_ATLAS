@@ -41,26 +41,35 @@ A dedicated database user must be created with specific schema permissions [4]:
   <summary><b> User Creation Script</b></summary>
 
 ```sql
-CREATE USER webapi_user WITH PASSWORD 'your_secure_password';
-GRANT CONNECT ON DATABASE your_database TO webapi_user;
+-- result schema
+CREATE SCHEMA p_result_schema;
+-- webapi_schema
+CREATE SCHEMA p_webapi_schema;
+-- temp schema
+CREATE SCHEMA p_temp_schema;
+-- scratch schema
+CREATE SCHEMA p_scratch_schema;
+
+-- CREATE USER webapi_user WITH PASSWORD 'your_secure_password';
+GRANT CONNECT ON DATABASE exercise_db TO webapi_user;
 
 -- CDM Schema (Read-only)
-GRANT USAGE ON SCHEMA cdm TO webapi_user;
-GRANT SELECT ON ALL TABLES IN SCHEMA cdm TO webapi_user;
+GRANT USAGE ON SCHEMA prostate_schema TO webapi_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA prostate_schema TO webapi_user;
 
 -- Vocabulary Schema (Read-only)
-GRANT USAGE ON SCHEMA vocab TO webapi_user;
-GRANT SELECT ON ALL TABLES IN SCHEMA vocab TO webapi_user;
+GRANT USAGE ON SCHEMA cdm_schema TO webapi_user;
+GRANT SELECT ON ALL TABLES IN SCHEMA cdm_schema TO webapi_user;
 
 -- Results Schema (Full DML)
-GRANT USAGE, CREATE ON SCHEMA results TO webapi_user;
-GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA results TO webapi_user;
+GRANT USAGE, CREATE ON SCHEMA p_result_schema TO webapi_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA p_result_schema TO webapi_user;
 
 -- Temp Schema (Full control)
-GRANT USAGE, CREATE ON SCHEMA temp TO webapi_user;
+GRANT USAGE, CREATE ON SCHEMA p_temp_schema TO webapi_user;
 
 -- WebAPI Schema (Full privileges)
-GRANT ALL PRIVILEGES ON SCHEMA webapi TO webapi_user;
+GRANT ALL PRIVILEGES ON SCHEMA p_webapi_schema TO webapi_user;
 ```
     
 </details>
